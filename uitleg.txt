@@ -1,0 +1,191 @@
+################################################################################
+# Level 1                                                                      #
+################################################################################
+
+# Goal 1 : my PC need to communicate with my little brother's computer
+# Goal 2 : my Mac need to communicate with my little sister's computer
+
+client A: my PC ----- client B: my little brother's computer
+client C: my Mac ----- client D: my little sister's computer
+
+Interface A1: 		IP: []
+					Mask: 255.255.255.0
+Interface B1:		IP: 104.94.23.12
+					Mask: 255.255.255.0
+
+client C: my Mac
+client D: my little sister's computer
+
+Interface C1:	IP:		211.191.200.75
+				Mask:	255.255.0.0
+Interface D1:	IP:		[]
+				Mask:	255.255.0.0
+
+Answers:
+Interface A1:	IP: 104.94.23.13
+	The IP address needs to be mainly the same as the one in B1.
+	Change only the host address for the 4th IP field. Can be anything.
+Interface D1:	IP: 211.191.200.76
+	The mask states that the IP for D1 needs to be the same as the IP for C1
+	for the 1st and 2nd IP fields. The 3rd and 4th fields can be different.
+	I chose to only change the 4th field.
+
+################################################################################
+# Level 2                                                                      #
+################################################################################
+
+Goal 1 : Computer B need to communicate with Computer A
+Goal 1 : Computer D need to communicate with Computer C
+
+client A: Computer A ----- client B: Computer B
+client C: Computer C ----- client D: Computer D
+
+Interface A1: 	IP:		192.168.122.1
+				Mask:	[255.255.255.224]
+Interface B1:	IP:		[192.168.122.222]
+				Mask:	255.255.255.32
+
+client C:
+client D:
+
+Interface C1:	IP:		127.0.0.1
+				Mask:	[255.255.255.252]
+Interface D1:	IP:		127.0.0.4
+				Mask:	[/30]
+
+Answers:
+Interface A1:	IP: 
+
+Interface D1:	IP: 
+
+
+
+
+
+
+################################################################################
+# Level 3                                                                      #
+################################################################################
+
+client A: ----- client B: 
+client C:----- client D: 
+
+Interface A1: 		IP: []
+					Mask: 
+Interface B1:		IP: 
+					Mask:
+
+client C:
+client D:
+
+Interface C1:	IP:		
+				Mask:	
+Interface D1:	IP:	
+				Mask:	
+
+Answers:
+Interface A1:	IP: 
+
+Interface D1:	IP: 
+
+
+
+
+
+
+
+
+################################################################################
+# Level 4                                                                      #
+################################################################################
+
+client A: ----- client B: 
+client C:----- client D: 
+
+Interface A1: 		IP: []
+					Mask: 
+Interface B1:		IP: 
+					Mask:
+
+client C:
+client D:
+
+Interface C1:	IP:		
+				Mask:	
+Interface D1:	IP:	
+				Mask:	
+
+Answers:
+Interface A1:	IP: 
+
+Interface D1:	IP: 
+
+
+
+
+
+
+################################################################################
+# Level 5                                                                      #
+################################################################################
+
+
+
+
+
+################################################################################
+# Level 6                                                                      #
+################################################################################
+
+
+
+
+
+
+
+################################################################################
+# Level 7                                                                      #
+################################################################################
+
+
+
+
+
+
+################################################################################
+# Level 8                                                                      #
+################################################################################
+
+
+
+
+
+
+
+################################################################################
+# Level 9                                                                      #
+################################################################################
+
+
+
+
+
+
+
+################################################################################
+# Level 10                                                                     #
+################################################################################
+
+
+
+
+
+
+################################################################################
+# Level 11                                                                     #
+################################################################################
+
+
+
+
+
