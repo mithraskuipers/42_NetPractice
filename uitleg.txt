@@ -2,6 +2,8 @@
 # Level 1                                                                      #
 ################################################################################
 
+[] means fixed.
+
 # Goal 1 : my PC need to communicate with my little brother's computer
 # Goal 2 : my Mac need to communicate with my little sister's computer
 
@@ -34,33 +36,42 @@ Interface D1:	IP: 211.191.200.76
 # Level 2                                                                      #
 ################################################################################
 
+[] means fixed.
+
 Goal 1 : Computer B need to communicate with Computer A
 Goal 1 : Computer D need to communicate with Computer C
 
-client A: Computer A ----- client B: Computer B
-client C: Computer C ----- client D: Computer D
+client A: Computer A <---- client B: Computer B
+client C: Computer C <---- client D: Computer D
 
 Interface A1: 	IP:		192.168.122.1
 				Mask:	[255.255.255.224]
 Interface B1:	IP:		[192.168.122.222]
 				Mask:	255.255.255.32
-
-client C:
-client D:
-
 Interface C1:	IP:		127.0.0.1
-				Mask:	[255.255.255.252]
+				Mask:	[255.255.255.252]		(note: same as /30)
 Interface D1:	IP:		127.0.0.4
-				Mask:	[/30]
+				Mask:	[/30]					(note: same as 255.255.255.252)
 
 Answers:
-Interface A1:	IP: 
+Interface A1:	IP:	192.168.122.(193<->221)
+					1. Calculate mask room
+						255-224=31
+					2. Calculate ip room
+						224-31=193
+					3. Choose ip between 221<->193
+					Because of the corresponding (fixed) mask (255.255.255.224)
+					we know that the IP needs to be similar to that of B1
+					(192.168.122.222).
 
-Interface D1:	IP: 
-
-
-
-
+Interface B1:	Mask:
+					255.255.255.224
+					This simply needs to be the same mask that is used and fixed
+					by A1.
+Interface C1:	IP: 127.0.0.1 is not a valid ip!
+			192.168.122.253
+Interface D1:	IP: 192.168.122.254
+255 - 2 bits is 255-3=252 dus TUSSEN 252-255 en dat is dus 253-254
 
 
 ################################################################################
