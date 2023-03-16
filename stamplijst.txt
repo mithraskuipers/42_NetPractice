@@ -43,6 +43,7 @@ LEVEL 10
 
 
 SUPER STAMPLIJST:
+- Level 8: links .1 en .2, rechts .17 en .18
 - INTERNET DEST: .0/24 of .0/28
 - INTERNET NEXT HOP: Meest ver weg IP (nog wel binnen netwerk)
 - ROUTING TABLE DEST: default
@@ -51,3 +52,15 @@ SUPER STAMPLIJST:
 .1 en .2
 .17 en .18
 .193 en .194
+
+
+In het kort:
+Level 8:
+	Gefaald.
+	Linksonder .1 en .2
+	Rechtsonder: .17 en .18.
+	Middenstuk, doe -1, niet +1
+Level 10:
+	Gefaald.
+	Internet moet .0/24
+	Onderaan rechts moet .193 en 194

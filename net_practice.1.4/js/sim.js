@@ -14,11 +14,12 @@ var private_subnets = [
 function ip_to_int(s)
 {
     var tab = s.split('.');
+    tab.forEach((el, idx) => {this[idx] = parseInt(el);});
     if (tab.length != 4) return (null);
-    if (parseInt(tab[0]) < 0 || parseInt(tab[0]) > 223 || parseInt(tab[1]) < 0 || parseInt(tab[1]) > 255 ||
-	parseInt(tab[2]) < 0 || parseInt(tab[2]) > 255 || parseInt(tab[3]) < 0 || parseInt(tab[3]) > 255) return (null);
-    if (parseInt(tab[0]) == 127) { g_sim_logs += "loopback address detected on outside interface\n"; return (null); }   // maybe not the best option to deal with 127/8 loopback addresses...
-    return ( ( (parseInt(tab[0]) << 24) | ((parseInt(tab[1])) << 16) | ((parseInt(tab[2])) << 8) | (parseInt(tab[3])) ) >>> 0);
+    if (isNaN(tab[0]) || tab[0] < 0 || tab[0] > 223 || isNaN(tab[1]) || tab[1] < 0 || tab[1] > 255 ||
+	isNaN(tab[2]) || tab[2] < 0 || tab[2] > 255 || isNaN(tab[3]) || tab[3] < 0 || tab[3] > 255) return (null);
+    if (tab[0] == 127) { g_sim_logs += "loopback address detected on outside interface\n"; return (null); }   // maybe not the best option to deal with 127/8 loopback addresses...
+    return ( ( (tab[0] << 24) | (tab[1] << 16) | (tab[2] << 8) | (tab[3]) ) >>> 0);
 }
 
 function mask_to_int(s)
@@ -27,18 +28,20 @@ function mask_to_int(s)
     if (s[0] == '/')
     {
 	var cidr = parseInt(s.substring(1));
-	if (cidr < 0 || cidr > 32) return (null);
-	return ( ((1 << cidr)-1) << (32-cidr));
+	if (isNaN(cidr) || cidr < 0 || cidr > 32) return (null);
+	if (cidr == 32) return ((-1)>>>0);
+	return ( ((((1 << cidr)>>>0)-1) << (32-cidr))>>>0 );
     }
     var tab = s.split('.');
+    tab.forEach((el, idx) => {this[idx] = parseInt(el);});
     if (tab.length != 4) return (null);
-    if (parseInt(tab[0]) < 0 || parseInt(tab[0]) > 255 || parseInt(tab[1]) < 0 || parseInt(tab[1]) > 255 ||
-	parseInt(tab[2]) < 0 || parseInt(tab[2]) > 255 || parseInt(tab[3]) < 0 || parseInt(tab[3]) > 255) return (null);
-    if (parseInt(tab[0]) != 255 && (parseInt(tab[1]) != 0 || parseInt(tab[2]) != 0 || parseInt(tab[3]) != 0)) return (null);
-    if (parseInt(tab[0]) == 255 && parseInt(tab[1]) != 255 && (parseInt(tab[2]) != 0 || parseInt(tab[3]) != 0)) return (null);
-    if (parseInt(tab[0]) == 255 && parseInt(tab[1]) == 255 && parseInt(tab[2]) != 255 && parseInt(tab[3]) != 0) return (null);
+    if (isNaN(tab[0]) || tab[0] < 0 || tab[0] > 255 || isNaN(tab[1]) || tab[1] < 0 || tab[1] > 255 ||
+	isNaN(tab[2]) || tab[2] < 0 || tab[2] > 255 || isNaN(tab[3]) || tab[3] < 0 || tab[3] > 255) return (null);
+    if (tab[0] != 255 && (tab[1] != 0 || tab[2] != 0 || tab[3] != 0)) return (null);
+    if (tab[0] == 255 && tab[1] != 255 && (tab[2] != 0 || tab[3] != 0)) return (null);
+    if (tab[0] == 255 && tab[1] == 255 && tab[2] != 255 && tab[3] != 0) return (null);
     // magic trick to check if we have continuity of 1 then 0
-    var mask = ( ( (parseInt(tab[0]) << 24) | ((parseInt(tab[1])) << 16) | ((parseInt(tab[2])) << 8) | (parseInt(tab[3])) ) >>> 0);
+    var mask = ( ( ( tab[0] << 24) | (( tab[1] ) << 16) | (( tab[2] ) << 8) | ( tab[3] ) ) >>> 0);
     if (mask == 0) return (0);
     if ( ( ((~mask)+1) & (~mask) ) == 0)
 	return (mask);
