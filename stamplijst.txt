@@ -1,66 +1,20 @@
 LEVEL 6
-- INTERNET DEST: A1 IP + /24 of /28
-- INTERNET DEST: A NEXT HOP .0 / 24
-
+    INTERNET .0/24
 LEVEL 7
-- ALLE DEST OP DEFAULT
-- ALLE MASK OP /28
-- RECHTSONDERIN: .193/.194 of 1.1.1.1					<--
-
+    MASKS /28
+    Onderaan IP .17/.18
 LEVEL 8
-- INTERNET NEXT HOP: R12 IP
-- R13 IP en R14 IP bepaald door R2 NEXT HOP.
-- R1 DEST: DEFAULT
-- LINKSONDER: gebaseerd op R21, maar met .1 en .2
-- MIDDEN BEPAALD DOOR R2 NEXT HOP. Voor R21, doe -1
-- R1 NEXT HOP is natuurlijk R21 IP en heeft niets te maken met internet <--
-- ALLE VRIJE MASKS OP /28
-- ALLE DEST OP DEFAULT
-REMEMBER:
-- LINKERZIJDE .1/.2							<--
-- RECHTERZIJDE .17/.18							<--
-
-
+    MASKS /28
+    Midden IP -1
+    Linkerzijde .1/.2
+    Rechterzijde .17/.18
 LEVEL 9
-- Alle DEST op default. Ook die onderaan!
-
-- Linkerzijde: 1.1.1.1
-- Rechterzijde: 2.2.2.1
-- ROUTING TABLE MIDDEN HELEMAAL LEGEN. JE HOEFT MAAR 1 LIJN TOE TE VOEGEN.
-- INTERNET 1.1.1.0/28, 2.2.2.0/28					<-- 
-- INTERNET 1.1.1.0/24, 2.2.2.0/24			werkt ook	<-- 
-- R2 NEXT HOP haal je uit midden (R13), niet onderaan (D1)
-- R13 en R21 zijn simpelweg gebaseerd op de standaard gegeven waarde van R13 <--
+    INTERNET 1.1.1.0/24
+    INTERNET 2.2.2.0/24
+    Linkerzije 1.1.1.1
+    Rechterzijde 2.2.2.1
+    Midden bovenste default houden.
 
 LEVEL 10
-- RECHTERZIJDE: al voor je bepaald.
-- ALLE VRIJE MASKS OP /28
-- ONDERAAN LINKS: al voor je bepaald
-- ONDERAAN RECHTS: gebaseerd op links maar met .193 en 194		<--
-- INTERNET: R21 (waar de splitsing is onderaan), met .0/24		<-- geen .0/28
-- MIDDEN: ROUTING TABLE DEST: default
-- VALKUIL: VERGAT R13 MASK TE UPDATEN
-
-
-SUPER STAMPLIJST:
-- Level 8: links .1 en .2, rechts .17 en .18
-- INTERNET DEST: .0/24 of .0/28
-- INTERNET NEXT HOP: Meest ver weg IP (nog wel binnen netwerk)
-- ROUTING TABLE DEST: default
-- ROUTING TABLE NEXT HOP: Meest ver weg IP (nog wel binnen netwerk)
-1.1.1.1 en 2.2.2.1
-.1 en .2
-.17 en .18
-.193 en .194
-
-
-In het kort:
-Level 8:
-	Gefaald.
-	Linksonder .1 en .2
-	Rechtsonder: .17 en .18.
-	Middenstuk, doe -1, niet +1
-Level 10:
-	Gefaald.
-	Internet moet .0/24
-	Onderaan rechts moet .193 en 194
+    INTERNET splitsing .0/24
+    Rechterzijde .193/.194
