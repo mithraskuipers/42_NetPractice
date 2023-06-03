@@ -1,4 +1,13 @@
-## NetPractice
+<p align="center" style="margin-bottom: 0px !important;">
+  <img width="600" src="https://github.com/mithraskuipers/mithraskuipers/blob/master/readme_srcs/42/logo.png?raw=true" alt="42_Network_Amsterdam" align="center"> </p>
+<h1 align="center" style="margin-top: 0px;">Net_Practice <a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/cl483ajsd008309l6suq9l256/project/2861882" alt="mikuiper's 42 NetPractice Score" /></a>
+
+<p align="center" style="margin-top: 0px;">
+<img src="https://forthebadge.com/images/badges/made-with-c.svg"/>
+<img src="https://forthebadge.com/images/badges/built-with-love.svg"/>
+</p>
+
+## :book: About the project
 
 In this project, you will delve into the concept of subnetting, which involves dividing a larger network into smaller subnetworks. This process plays a crucial role in network management by improving performance, enhancing security, and optimizing resource allocation. Understanding subnet formats, including their binary, bits per byte, and decimal representations, is essential for effective network configuration and administration.
 
