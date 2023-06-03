@@ -1,4 +1,29 @@
-## Important Concepts
+## NetPractice
+
+In this project, you will delve into the concept of subnetting, which involves dividing a larger network into smaller subnetworks. This process plays a crucial role in network management by improving performance, enhancing security, and optimizing resource allocation. Understanding subnet formats, including their binary, bits per byte, and decimal representations, is essential for effective network configuration and administration.
+
+By grasping subnet formats, you can efficiently configure IP addresses, determine address ranges, and allocate appropriate resources within each subnetwork. This knowledge enables efficient routing, effective communication, and better control over network traffic. Additionally, understanding subnetting facilitates troubleshooting network connectivity issues and implementing access control policies based on subnets. By gaining proficiency in subnetting, you will acquire valuable skills in network design, optimization, and troubleshooting, empowering you to manage networks with greater efficiency and ensure seamless communication within the network infrastructure.
+
+### Something to get started..
+---
+
+Take a moment to explore the table below, which presents various subnet formats used in the NetPractice project, except for the binary representation. This table was designed to aid comprehension of the distinct formats and their structures.
+
+The table provides insights into the bits per byte and decimal representations for each subnet format. By examining the table, you can grasp the relationship between the binary notation, byte notation, and CIDR notation. The inclusion of the binary notation helps establish connections and enhance understanding of how different notations correspond to each other.
+
+By studying this table, you can gain a deeper understanding of subnet formats and how they are represented in different notations. This knowledge will enable you to effectively configure and manage subnets, allocate IP addresses, and optimize network performance.
+
+| CIDR | Bits per Byte (Σ) | Binary                  | Decimal        |
+|------|------------------|-------------------------|----------------|
+| /32  | 8.8.8.8 (32)     | 11111111.11111111.11111111.11111111 | 255.255.255.255 (255=128+64+32+16+8+4+2+1) |
+| /30  | 8.8.8.6 (30)     | 11111111.11111111.11111111.11111100 | 255.255.255.252 (252=128+64+32+16+8+4) |
+| /28  | 8.8.8.4 (28)     | 11111111.11111111.11111111.11110000 | 255.255.255.240 (240=128+64+32+16) |
+| /27  | 8.8.8.3 (27)     | 11111111.11111111.11111111.11100000 | 255.255.255.224 (224=128+64+32) |
+| /26  | 8.8.8.2 (26)     | 11111111.11111111.11111111.11000000 | 255.255.255.192 (192=128+64) |
+| /24  | 8.8.8.0 (24)     | 11111111.11111111.11111111.00000000 | 255.255.255.0 (0) |
+
+## Important concepts
+---
 
 ### TCP: Transport Layer
 ---
