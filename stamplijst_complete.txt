@@ -5,7 +5,7 @@ LEVEL 6
 LEVEL 7
 - ALLE DEST OP DEFAULT
 - ALLE MASK OP /28
-- RECHTSONDERIN: .193/.194 of 1.1.1.1					<--
+- RECHTSONDERIN: .193/.194 of 1.1.1.1		<--
 
 LEVEL 8
 - INTERNET NEXT HOP: R12 IP
@@ -18,8 +18,7 @@ LEVEL 8
 - ALLE DEST OP DEFAULT
 REMEMBER:
 - LINKERZIJDE .1/.2							<--
-- RECHTERZIJDE .17/.18							<--
-
+- RECHTERZIJDE .17/.18					    <--
 
 LEVEL 9
 - Alle DEST op default. Ook die onderaan!
@@ -40,27 +39,3 @@ LEVEL 10
 - INTERNET: R21 (waar de splitsing is onderaan), met .0/24		<-- geen .0/28
 - MIDDEN: ROUTING TABLE DEST: default
 - VALKUIL: VERGAT R13 MASK TE UPDATEN
-
-
-SUPER STAMPLIJST:
-- Level 8: links .1 en .2, rechts .17 en .18
-- INTERNET DEST: .0/24 of .0/28
-- INTERNET NEXT HOP: Meest ver weg IP (nog wel binnen netwerk)
-- ROUTING TABLE DEST: default
-- ROUTING TABLE NEXT HOP: Meest ver weg IP (nog wel binnen netwerk)
-1.1.1.1 en 2.2.2.1
-.1 en .2
-.17 en .18
-.193 en .194
-
-
-In het kort:
-Level 8:
-	Gefaald.
-	Linksonder .1 en .2
-	Rechtsonder: .17 en .18.
-	Middenstuk, doe -1, niet +1
-Level 10:
-	Gefaald.
-	Internet moet .0/24
-	Onderaan rechts moet .193 en 194
